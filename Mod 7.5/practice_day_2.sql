@@ -1,0 +1,73 @@
+/*
+SELECT EMPLOYEES.FIRST_NAME, DEPARTMENT_NAME
+FROM EMPLOYEES, DEPARTMENTS
+WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID;
+*/
+
+/*
+1.
+Show the employee names and corresponding job_titles without using JOIN query
+
+
+
+SELECT EMPLOYEES.FIRST_NAME, JOBS.JOB_TITLE
+FROM EMPLOYEES , JOBS
+WHERE EMPLOYEES.JOB_ID = JOBS.JOB_ID
+ORDER BY EMPLOYEE_ID
+
+*/
+
+
+/*	
+2.
+Do the question no 1 using JOIN query
+
+
+
+
+SELECT e.EMPLOYEE_ID,e.FIRST_NAME,e.LAST_NAME,j.JOB_ID,j.JOB_TITLE
+FROM EMPLOYEES e
+	JOIN JOBS j
+		ON e.JOB_ID = j.JOB_ID
+ORDER BY e.EMPLOYEE_ID
+
+*/
+
+
+
+/*
+
+Show the name of the employee and the
+job_title who receives the maximum salary
+
+
+
+
+SELECT E.FIRST_NAME,E.LAST_NAME,J.JOB_TITLE,E.SALARY
+FROM EMPLOYEES E
+	JOIN JOBS J 
+		ON E.JOB_ID = J.JOB_ID
+WHERE (E.DEPARTMENT_ID, E.SALARY) IN (
+	SELECT DEPARTMENT_ID,MAX(SALARY) AS MAX_SALARY
+    FROM EMPLOYEES
+    GROUP BY DEPARTMENT_ID
+    )
+ORDER BY EMPLOYEE_ID
+    
+  */  
+  
+  
+/*
+Show the list of employee name and corresponding manager names.
+  
+  
+*/
+
+
+
+
+
+SELECT E.FIRST_NAME ,E.LAST_NAME,M.FIRST_NAME AS MANAGER
+FROM EMPLOYEES E 
+	JOIN EMPLOYEES M
+		ON E.MANAGER_ID = M.EMPLOYEE_ID
