@@ -60,6 +60,10 @@ ORDER BY EMPLOYEE_ID
 /*
 Show the list of employee name and corresponding manager names.
   
+SELECT E.EMPLOYEE_ID,E.FIRST_NAME ,E.LAST_NAME,M.FIRST_NAME AS MANAGER,M.EMPLOYEE_ID
+FROM EMPLOYEES E 
+	JOIN EMPLOYEES M
+		ON E.MANAGER_ID = M.EMPLOYEE_ID
   
 */
 
@@ -67,7 +71,15 @@ Show the list of employee name and corresponding manager names.
 
 
 
-SELECT E.FIRST_NAME ,E.LAST_NAME,M.FIRST_NAME AS MANAGER
-FROM EMPLOYEES E 
-	JOIN EMPLOYEES M
-		ON E.MANAGER_ID = M.EMPLOYEE_ID
+
+
+
+
+
+
+
+
+
+
+
+

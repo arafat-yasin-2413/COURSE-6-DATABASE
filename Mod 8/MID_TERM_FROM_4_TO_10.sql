@@ -1,5 +1,6 @@
 /*
 4.
+Write SQL Query to get the second max salary 
 
 SELECT MAX(SALARY) AS SECOND_MAX_SALARY
 FROM EMPLOYEES
@@ -21,6 +22,8 @@ ORDER BY SALARY DESC
 
 /*
 5.
+Write SQL Query to show  the department names 
+and the average salary of the departments
 
 SELECT D.DEPARTMENT_NAME, AVG(SALARY)
 FROM EMPLOYEES E 
@@ -31,18 +34,60 @@ GROUP BY E.DEPARTMENT_ID;
 
 */
 
+/*
+7. Subquery example
 
--- INNER JOIN 
+SELECT * FROM EMPLOYEES 
+WHERE SALARY < (SELECT SALARY 
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'DAVID' AND LAST_NAME = 'AUSTIN');
 
-SELECT E.FIRST_NAME,D.DEPARTMENT_NAME 
-FROM EMPLOYEES E
-	INNER JOIN DEPARTMENTS D
-		ON E.DEPARTMENT_ID = D.DEPARTMENT_ID
-        
--- LEFT JOIN
 
-countries
+*/
 
+
+/*
+8. Show the names of the employees who get less 
+salary than Steven
+
+SELECT FIRST_NAME ,LAST_NAME , SALARY 
+FROM EMPLOYEES 
+WHERE SALARY < (SELECT SALARY
+				FROM EMPLOYEES 
+				WHERE FIRST_NAME = 'STEVEN' AND LAST_NAME = 'KING'
+
+				);
+
+*/
+
+
+
+/*
+9. Count the number of employees of each job type
+
+SELECT J.JOB_TITLE, COUNT(*) AS No_of_employees
+FROM EMPLOYEES E 
+	JOIN JOBS J
+		ON E.JOB_ID = J.JOB_ID
+GROUP BY J.JOB_ID;
+
+
+*/
+
+
+
+/*
+10. Show the names of Departments which doesn’t have 
+any employees
+
+
+SELECT EMPLOYEES.EMPLOYEE_ID, DEPARTMENTS.DEPARTMENT_NAME
+FROM DEPARTMENTS 
+	LEFT JOIN EMPLOYEES
+		ON DEPARTMENTS.DEPARTMENT_ID = EMPLOYEES.DEPARTMENT_ID 
+WHERE EMPLOYEES.DEPARTMENT_ID IS NULL;
+
+*/
 
 
 
