@@ -79,6 +79,8 @@ where Roll = 103
 
 select * from enroll
 
+show databases
+
 
 
 
