@@ -1,99 +1,3 @@
-/*
-
-
-
-CREATE DATABASE SHOPPING
-USE SHOPPING
-
-
-
-CREATE TABLE CUSTOMER
-( 
-	ID INT PRIMARY KEY,
-    NAME VARCHAR(30),
-    EMAIL VARCHAR(50) UNIQUE
-    
-
-);
-
-
-CREATE TABLE PRODUCT
-(
-	PID INT AUTO_INCREMENT PRIMARY KEY,
-    PNAME VARCHAR(40) NOT NULL,
-    PRICE DECIMAL(10,2)
-);
-
-CREATE TABLE ORDERTABLE 
-(
-	ORDER_ID INT AUTO_INCREMENT PRIMARY KEY,
-    CUSTOMERID INT,
-    PRODUCTID INT,
-    BILL DECIMAL(10,2),
-    FOREIGN KEY(CUSTOMERID) REFERENCES CUSTOMER(ID),
-    FOREIGN KEY(PRODUCTID) REFERENCES PRODUCT(PID)
-    
-);
-
-
-
-INSERT INTO PRODUCT(PNAME,PRICE)
-VALUES
-('Shirt',1500),
-('Pant',2000),
-('Shoes',3000),
-('Panjabi',2500);
-
-
-INSERT INTO CUSTOMER
-VALUES
-(1,'Sakib Khan','sakib@gmail'),
-(2,'Somya Sarkar','somya@gmail'),
-(3,'Mosaddek Khan','mosaddek@gmail');
-
-
-
-
-
-
-
-
-
-
-
-select * from ordertable;
-INSERT INTO ORDERTABLE
-(CUSTOMERID,PRODUCTID,BILL)
-VALUES
-(2,3,3000);
-
-INSERT INTO ORDERTABLE
-(CUSTOMERID,PRODUCTID,BILL)
-VALUES
-(1,3,3000);
-
-INSERT INTO ORDERTABLE
-(CUSTOMERID,PRODUCTID,BILL)
-VALUES
-(1,1,6000),
-(1,2,4000),
-(2,3,10000);
-
-
-INSERT INTO CUSTOMER
-VALUES
-(4,'Tamim Khan','tamim@gmail'),
-(5,'Nazmul Hasan','nazmul@gmail'),
-(6,'Riyad Khan','riyad@gmail');
-
-
-INSERT INTO ORDERTABLE
-(CUSTOMERID,PRODUCTID,BILL)
-VALUES
-(5,4,8000),
-(4,2,5000),
-(6,3,4500);
-*/
 
 -- DATABASE 'TEST'
 
@@ -141,7 +45,16 @@ select name,age,salary
 from table_1 
 UNION
 select name,age,salary 
-from table_2 
+from table_2 ;
+
+
+
+select name,age,salary 
+from table_1 
+UNION ALL
+select name,age,salary 
+from table_2;
+
 
 
 

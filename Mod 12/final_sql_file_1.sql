@@ -171,7 +171,7 @@ VALUES
 SELECT CURRENT_DATE();
 
 
-
+use student_library;
 -- Answer to the question no. 5
 SELECT book.TITLE AS DUE_DATE_PASSED
 FROM BOOK book
